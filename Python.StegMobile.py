@@ -33,7 +33,7 @@ def encode(message):
             '''
             for phoneChar in range(2,len(numberCharDict)):
                 if(charInMessage == numberCharDict[phoneChar]):
-                    for time in range (phoneChar - 1):
+                    for iteration in range (phoneChar - 1):
                         encodedMessage += numberCharDict[0]
                     # Add "-" after each sequence of numbers 
                     encodedMessage += "-"
@@ -70,7 +70,7 @@ def cli():
     if choice == "q":
         return True 
 
-    # All functions require a message 
+    # All functions require a message
     print("Type (or copy in) your message (use '-' to seperate numbers)")
     inputMessage = input(">")
 
