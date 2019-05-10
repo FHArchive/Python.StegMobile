@@ -1,7 +1,7 @@
 '''
 Kieran W
 
-StegMobile encoder/ decoder 
+StegMobile encoder/ decoder
 '''
 
 text = [
@@ -19,9 +19,9 @@ text = [
 
 
 def encode(message):
-    # Set up encodedMessage to return to calling program 
+    # Set up encodedMessage to return to calling program
     encodedMessage = ""
-    # Go through each charInMessage 
+    # Go through each charInMessage
     for messageChar in range(len(message)):
         charInMessage = message[messageChar]
         # Go through each numberCharDict
@@ -35,18 +35,18 @@ def encode(message):
                 if(charInMessage == numberCharDict[phoneChar]):
                     for iteration in range (phoneChar - 1):
                         encodedMessage += numberCharDict[0]
-                    # Add "-" after each sequence of numbers 
+                    # Add "-" after each sequence of numbers
                     encodedMessage += "-"
     return encodedMessage
-        
+
 
 
 def decode(message):
-    # Set up decodedMessage to return to calling program 
+    # Set up decodedMessage to return to calling program
     decodedMessage = ""
-    # Split the message into parts 
+    # Split the message into parts
     messageParts = message.split("-")
-    # Go through each of these parts 
+    # Go through each of these parts
     for part in range(len(messageParts)):
         numberSeq = messageParts[part]
         # Go through each numberCharDict
@@ -54,35 +54,35 @@ def decode(message):
             numberCharDict = text[textNumber]
             if (len(numberSeq) and (numberCharDict[0] == numberSeq[0])):
                 decodedMessage += numberCharDict[len(numberSeq)+1]
-                    
+
     return decodedMessage
-  
 
 
-# Define an interface 
+
+# Define an interface
 def cli():
     print("Encode/ decode message or quit (E/d/q)" )
     choice = input(">")
     if (len(choice) > 0):
         choice = choice[0].lower()
 
-    # Quit application 
+    # Quit application
     if choice == "q":
-        return True 
+        return True
 
     # All functions require a message
     print("Type (or copy in) your message (use '-' to seperate numbers)")
     inputMessage = input(">")
 
-    # DECODE 
+    # DECODE
     if (choice == "d"):
         print(decode(inputMessage))
-    # DEFAULT = ENCODE  
+    # DEFAULT = ENCODE
     else:
         print(encode(inputMessage))
 
-# Run the cli while the user has not finished 
-finished = False 
+# Run the cli while the user has not finished
+finished = False
 while not finished:
     finished = cli()
 
