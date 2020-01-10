@@ -13,7 +13,7 @@
 
 # Python.StegMobile
 
-<img src="readme-assets/icons/proj-icon.png" alt="Project Icon" width="750">
+<img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
 StegMobile encoder/ decoder
 
